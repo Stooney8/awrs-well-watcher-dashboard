@@ -106,17 +106,17 @@ const Index = () => {
   }, [simulationSettings]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
       {/* Header */}
-      <div className="border-b border-slate-300/60 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="border-b border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-blue-500 dark:to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-500 dark:to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
                 <Wind className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
                   AWRS Dashboard
                 </h1>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Automated Well Reconnaissance System</p>
@@ -135,7 +135,7 @@ const Index = () => {
                   {systemStatus.connected ? "Connected" : "Offline"}
                 </span>
               </div>
-              <Badge variant="outline" className="text-cyan-600 dark:text-cyan-400 border-cyan-500/50 dark:border-cyan-400 bg-cyan-50 dark:bg-transparent">
+              <Badge variant="outline" className="text-blue-700 dark:text-cyan-400 border-blue-300 dark:border-cyan-400 bg-blue-50 dark:bg-transparent">
                 Uptime: {systemStatus.uptime}
               </Badge>
             </div>
@@ -146,7 +146,7 @@ const Index = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-6">
         <Tabs defaultValue="dashboard" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 bg-white/80 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 shadow-sm">
+          <TabsList className="grid w-full grid-cols-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
             <TabsTrigger value="dashboard" className="data-[state=active]:bg-slate-100 dark:data-[state=active]:bg-slate-700 data-[state=active]:text-slate-900 dark:data-[state=active]:text-white">
               Dashboard
             </TabsTrigger>
@@ -164,15 +164,15 @@ const Index = () => {
               <BatteryStatus />
               <LEDControl />
               
-              <Card className="bg-gradient-to-br from-slate-100/80 via-white to-slate-200/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-300/60 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
+              <Card className="bg-gradient-to-br from-white via-slate-50 to-slate-100/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center">
-                    <RotateCcw className="w-4 h-4 mr-2 text-slate-500 dark:text-slate-400" />
+                    <RotateCcw className="w-4 h-4 mr-2 text-slate-600 dark:text-slate-400" />
                     Last Update
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">
+                  <div className="text-2xl font-bold text-blue-700 dark:text-cyan-400">
                     {systemStatus.lastUpdate.toLocaleTimeString()}
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
@@ -181,10 +181,10 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-slate-100/80 via-white to-slate-200/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-300/60 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
+              <Card className="bg-gradient-to-br from-white via-slate-50 to-slate-100/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center">
-                    <Camera className="w-4 h-4 mr-2 text-slate-500 dark:text-slate-400" />
+                    <Camera className="w-4 h-4 mr-2 text-slate-600 dark:text-slate-400" />
                     Camera Status
                   </CardTitle>
                 </CardHeader>
