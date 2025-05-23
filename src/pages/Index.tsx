@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -27,13 +26,15 @@ import LEDControl from "@/components/LEDControl";
 import BatteryStatus from "@/components/BatteryStatus";
 import SettingsPanel from "@/components/SettingsPanel";
 
+type SensorStatus = "normal" | "warning" | "danger" | "low" | "high";
+
 const Index = () => {
   const [sensorData, setSensorData] = useState({
-    temperature: { value: 22.5, unit: "°C", status: "normal" },
-    humidity: { value: 65, unit: "%", status: "normal" },
-    gasLevel: { value: 45, unit: "ppm", status: "normal" },
-    pressure: { value: 1013.25, unit: "hPa", status: "normal" },
-    soilMoisture: { value: 35, unit: "%", status: "low" }
+    temperature: { value: 22.5, unit: "°C", status: "normal" as SensorStatus },
+    humidity: { value: 65, unit: "%", status: "normal" as SensorStatus },
+    gasLevel: { value: 45, unit: "ppm", status: "normal" as SensorStatus },
+    pressure: { value: 1013.25, unit: "hPa", status: "normal" as SensorStatus },
+    soilMoisture: { value: 35, unit: "%", status: "low" as SensorStatus }
   });
 
   const [simulationSettings, setSimulationSettings] = useState({

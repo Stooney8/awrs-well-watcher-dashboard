@@ -15,54 +15,54 @@ interface SensorCardProps {
 
 const colorClasses = {
   red: {
-    icon: "text-red-400",
-    gradient: "from-red-500/20 to-red-600/5",
-    border: "border-red-500/30"
+    icon: "text-rose-300",
+    gradient: "from-rose-500/10 to-rose-600/5",
+    border: "border-rose-400/20"
   },
   blue: {
-    icon: "text-blue-400",
-    gradient: "from-blue-500/20 to-blue-600/5",
-    border: "border-blue-500/30"
+    icon: "text-sky-300",
+    gradient: "from-sky-500/10 to-sky-600/5",
+    border: "border-sky-400/20"
   },
   yellow: {
-    icon: "text-yellow-400",
-    gradient: "from-yellow-500/20 to-yellow-600/5",
-    border: "border-yellow-500/30"
+    icon: "text-amber-300",
+    gradient: "from-amber-500/10 to-amber-600/5",
+    border: "border-amber-400/20"
   },
   purple: {
-    icon: "text-purple-400",
-    gradient: "from-purple-500/20 to-purple-600/5",
-    border: "border-purple-500/30"
+    icon: "text-violet-300",
+    gradient: "from-violet-500/10 to-violet-600/5",
+    border: "border-violet-400/20"
   },
   green: {
-    icon: "text-green-400",
-    gradient: "from-green-500/20 to-green-600/5",
-    border: "border-green-500/30"
+    icon: "text-emerald-300",
+    gradient: "from-emerald-500/10 to-emerald-600/5",
+    border: "border-emerald-400/20"
   }
 };
 
 const statusColors = {
-  normal: "bg-green-500",
-  warning: "bg-yellow-500",
-  danger: "bg-red-500",
-  low: "bg-orange-500",
-  high: "bg-blue-500"
+  normal: "bg-emerald-400",
+  warning: "bg-amber-400",
+  danger: "bg-rose-400",
+  low: "bg-orange-400",
+  high: "bg-blue-400"
 };
 
 const SensorCard = ({ icon: Icon, title, value, unit, status, isSimulated, color }: SensorCardProps) => {
   const colorClass = colorClasses[color];
   
   return (
-    <Card className={`bg-gradient-to-br ${colorClass.gradient} border-slate-700 ${colorClass.border} hover:border-opacity-60 transition-all duration-300 hover:shadow-lg hover:shadow-${color}-500/10`}>
+    <Card className={`bg-gradient-to-br ${colorClass.gradient} border-slate-700 ${colorClass.border} hover:border-opacity-40 transition-all duration-300 hover:shadow-lg`}>
       <CardHeader className="pb-3">
-        <CardTitle className="text-sm font-medium text-slate-300 flex items-center justify-between">
+        <CardTitle className="text-sm font-medium text-slate-200 flex items-center justify-between">
           <div className="flex items-center">
             <Icon className={`w-4 h-4 mr-2 ${colorClass.icon}`} />
             {title}
           </div>
           <div className="flex items-center space-x-2">
             {isSimulated && (
-              <Badge variant="outline" className="text-xs text-orange-400 border-orange-400">
+              <Badge variant="outline" className="text-xs text-amber-300 border-amber-300/50">
                 SIM
               </Badge>
             )}
@@ -72,24 +72,24 @@ const SensorCard = ({ icon: Icon, title, value, unit, status, isSimulated, color
       </CardHeader>
       <CardContent>
         <div className="space-y-2">
-          <div className="text-3xl font-bold text-white">
+          <div className="text-3xl font-bold text-slate-100">
             {value}
-            <span className="text-lg text-slate-400 ml-1">{unit}</span>
+            <span className="text-lg text-slate-300 ml-1">{unit}</span>
           </div>
           <div className="flex items-center justify-between">
             <Badge 
               variant="outline" 
               className={`text-xs ${
-                status === 'normal' ? 'text-green-400 border-green-400' :
-                status === 'warning' ? 'text-yellow-400 border-yellow-400' :
-                status === 'danger' ? 'text-red-400 border-red-400' :
-                status === 'low' ? 'text-orange-400 border-orange-400' :
-                'text-blue-400 border-blue-400'
+                status === 'normal' ? 'text-emerald-300 border-emerald-300/50' :
+                status === 'warning' ? 'text-amber-300 border-amber-300/50' :
+                status === 'danger' ? 'text-rose-300 border-rose-300/50' :
+                status === 'low' ? 'text-orange-300 border-orange-300/50' :
+                'text-blue-300 border-blue-300/50'
               }`}
             >
               {status.toUpperCase()}
             </Badge>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-slate-400">
               {new Date().toLocaleTimeString()}
             </span>
           </div>
