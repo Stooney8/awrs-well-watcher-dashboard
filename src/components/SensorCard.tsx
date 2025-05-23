@@ -15,45 +15,50 @@ interface SensorCardProps {
 
 const colorClasses = {
   red: {
-    icon: "text-rose-300",
-    gradient: "from-rose-500/10 to-rose-600/5",
-    border: "border-rose-400/20"
+    icon: "text-slate-300",
+    gradient: "from-slate-800/40 to-slate-700/20",
+    border: "border-slate-600/30",
+    accent: "text-red-300"
   },
   blue: {
-    icon: "text-sky-300",
-    gradient: "from-sky-500/10 to-sky-600/5",
-    border: "border-sky-400/20"
+    icon: "text-slate-300",
+    gradient: "from-slate-800/40 to-slate-700/20",
+    border: "border-slate-600/30",
+    accent: "text-blue-300"
   },
   yellow: {
-    icon: "text-amber-300",
-    gradient: "from-amber-500/10 to-amber-600/5",
-    border: "border-amber-400/20"
+    icon: "text-slate-300",
+    gradient: "from-slate-800/40 to-slate-700/20",
+    border: "border-slate-600/30",
+    accent: "text-yellow-300"
   },
   purple: {
-    icon: "text-violet-300",
-    gradient: "from-violet-500/10 to-violet-600/5",
-    border: "border-violet-400/20"
+    icon: "text-slate-300",
+    gradient: "from-slate-800/40 to-slate-700/20",
+    border: "border-slate-600/30",
+    accent: "text-purple-300"
   },
   green: {
-    icon: "text-emerald-300",
-    gradient: "from-emerald-500/10 to-emerald-600/5",
-    border: "border-emerald-400/20"
+    icon: "text-slate-300",
+    gradient: "from-slate-800/40 to-slate-700/20",
+    border: "border-slate-600/30",
+    accent: "text-green-300"
   }
 };
 
 const statusColors = {
-  normal: "bg-emerald-400",
-  warning: "bg-amber-400",
-  danger: "bg-rose-400",
-  low: "bg-orange-400",
-  high: "bg-blue-400"
+  normal: "bg-green-500/80",
+  warning: "bg-yellow-500/80",
+  danger: "bg-red-500/80",
+  low: "bg-orange-500/80",
+  high: "bg-blue-500/80"
 };
 
 const SensorCard = ({ icon: Icon, title, value, unit, status, isSimulated, color }: SensorCardProps) => {
   const colorClass = colorClasses[color];
   
   return (
-    <Card className={`bg-gradient-to-br ${colorClass.gradient} border-slate-700 ${colorClass.border} hover:border-opacity-40 transition-all duration-300 hover:shadow-lg`}>
+    <Card className={`bg-gradient-to-br ${colorClass.gradient} border ${colorClass.border} hover:border-slate-500/50 transition-all duration-300 hover:shadow-md backdrop-blur-sm`}>
       <CardHeader className="pb-3">
         <CardTitle className="text-sm font-medium text-slate-200 flex items-center justify-between">
           <div className="flex items-center">
@@ -62,29 +67,29 @@ const SensorCard = ({ icon: Icon, title, value, unit, status, isSimulated, color
           </div>
           <div className="flex items-center space-x-2">
             {isSimulated && (
-              <Badge variant="outline" className="text-xs text-amber-300 border-amber-300/50">
+              <Badge variant="outline" className="text-xs text-yellow-400 border-yellow-400/40 bg-yellow-400/10">
                 SIM
               </Badge>
             )}
-            <div className={`w-2 h-2 rounded-full ${statusColors[status]} animate-pulse`} />
+            <div className={`w-2 h-2 rounded-full ${statusColors[status]} shadow-sm`} />
           </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-2">
-          <div className="text-3xl font-bold text-slate-100">
+          <div className="text-3xl font-bold text-white">
             {value}
             <span className="text-lg text-slate-300 ml-1">{unit}</span>
           </div>
           <div className="flex items-center justify-between">
             <Badge 
               variant="outline" 
-              className={`text-xs ${
-                status === 'normal' ? 'text-emerald-300 border-emerald-300/50' :
-                status === 'warning' ? 'text-amber-300 border-amber-300/50' :
-                status === 'danger' ? 'text-rose-300 border-rose-300/50' :
-                status === 'low' ? 'text-orange-300 border-orange-300/50' :
-                'text-blue-300 border-blue-300/50'
+              className={`text-xs bg-slate-800/50 ${
+                status === 'normal' ? 'text-green-400 border-green-400/40' :
+                status === 'warning' ? 'text-yellow-400 border-yellow-400/40' :
+                status === 'danger' ? 'text-red-400 border-red-400/40' :
+                status === 'low' ? 'text-orange-400 border-orange-400/40' :
+                'text-blue-400 border-blue-400/40'
               }`}
             >
               {status.toUpperCase()}
