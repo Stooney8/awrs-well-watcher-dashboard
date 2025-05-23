@@ -106,9 +106,9 @@ const Index = () => {
   }, [simulationSettings]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
       {/* Header */}
-      <div className="border-b border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="border-b border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -127,15 +127,15 @@ const Index = () => {
               <ThemeToggle />
               <div className="flex items-center space-x-2">
                 {systemStatus.connected ? (
-                  <Wifi className="w-4 h-4 text-emerald-500 dark:text-green-400" />
+                  <Wifi className="w-4 h-4 text-emerald-500" />
                 ) : (
-                  <WifiOff className="w-4 h-4 text-red-500 dark:text-red-400" />
+                  <WifiOff className="w-4 h-4 text-red-500" />
                 )}
                 <span className="text-sm text-slate-600 dark:text-slate-400">
                   {systemStatus.connected ? "Connected" : "Offline"}
                 </span>
               </div>
-              <Badge variant="outline" className="text-blue-700 dark:text-cyan-400 border-blue-300 dark:border-cyan-400 bg-blue-50 dark:bg-transparent">
+              <Badge variant="outline" className="text-blue-700 dark:text-cyan-400 border-blue-300 dark:border-cyan-400/60 bg-blue-50 dark:bg-cyan-400/10">
                 Uptime: {systemStatus.uptime}
               </Badge>
             </div>
@@ -164,7 +164,13 @@ const Index = () => {
               <BatteryStatus />
               <LEDControl />
               
-              <Card className="bg-gradient-to-br from-white via-slate-50 to-slate-100/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
+              <Card className="
+                bg-white dark:bg-slate-800/90
+                border border-slate-200 dark:border-slate-700
+                hover:border-slate-300 dark:hover:border-slate-600
+                transition-all duration-300 
+                hover:shadow-lg hover:shadow-slate-200/20 dark:hover:shadow-slate-900/40
+              ">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center">
                     <RotateCcw className="w-4 h-4 mr-2 text-slate-600 dark:text-slate-400" />
@@ -175,13 +181,19 @@ const Index = () => {
                   <div className="text-2xl font-bold text-blue-700 dark:text-cyan-400">
                     {systemStatus.lastUpdate.toLocaleTimeString()}
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
+                  <p className="text-xs text-slate-500 dark:text-slate-500 mt-1 font-mono">
                     {systemStatus.lastUpdate.toLocaleDateString()}
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-white via-slate-50 to-slate-100/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-900/80 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300">
+              <Card className="
+                bg-white dark:bg-slate-800/90
+                border border-slate-200 dark:border-slate-700
+                hover:border-slate-300 dark:hover:border-slate-600
+                transition-all duration-300 
+                hover:shadow-lg hover:shadow-slate-200/20 dark:hover:shadow-slate-900/40
+              ">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center">
                     <Camera className="w-4 h-4 mr-2 text-slate-600 dark:text-slate-400" />
@@ -191,15 +203,15 @@ const Index = () => {
                 <CardContent>
                   <div className="flex items-center space-x-2">
                     {cameraStatus.isStreaming ? (
-                      <Play className="w-4 h-4 text-emerald-500 dark:text-green-400" />
+                      <Play className="w-4 h-4 text-emerald-500" />
                     ) : (
-                      <Pause className="w-4 h-4 text-red-500 dark:text-red-400" />
+                      <Pause className="w-4 h-4 text-red-500" />
                     )}
                     <span className="text-sm text-slate-700 dark:text-slate-300">
                       {cameraStatus.isStreaming ? "Streaming" : "Stopped"}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
+                  <p className="text-xs text-slate-500 dark:text-slate-500 mt-1 font-mono">
                     {cameraStatus.quality} • {cameraStatus.fps} FPS
                   </p>
                 </CardContent>
